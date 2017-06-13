@@ -1,0 +1,11 @@
+-# edit.html.haml using partial
+
+%h2 Edit Existing Movie
+
+= form_tag movie_path(@movie), :method => :put do
+  = render :partial => 'movie_form'
+
+  = label :movie, :description, 'Description'
+  = text_field :movie, :description
+  
+  = submit_tag 'Update Movie Info'

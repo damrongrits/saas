@@ -1,0 +1,22 @@
+%h1 Search Results:
+
+- if @movies.empty?
+  %p No results were found
+
+- @movies.each do |movie|
+  %h2= movie.title
+
+  %ul#details
+    = image_tag("http://image.tmdb.org/t/p/w500#{movie.poster_path}", size: "240x360")
+  %li
+    %strong Release Date:
+    = movie.release_date
+  %li
+    %strong Vote Average:
+    = movie.vote_average
+  %li
+    %strong Vote Count:
+    = movie.vote_count
+  %li
+    %strong Description:
+    = truncate(movie.overview, :length => 250)
